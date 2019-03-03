@@ -1,4 +1,5 @@
 # MySQL-Nile
+Just clone Database.php and MySqlNile.php and use it like anyother php file.
 How to use : -<br>
 First update your server information in DataBase.php file.<br>
 Created by Pratik Mazumdar(LUCIF680) <br>
