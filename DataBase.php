@@ -1,8 +1,8 @@
 <?php
-abstract Class DataBase
-{
-    static protected $servername = "";
-    static protected $username_database = "";
-    static protected $password_database = "";
-    static protected $dbname = "";
+interface DataBase{
+    const servername = ""; // your server name
+    const username_database = "";//username of database
+    const password_database = "";// password of database
+    const dbname = "";// database name
 }
+
