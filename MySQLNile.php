@@ -8,19 +8,24 @@ MySQL Nile is a PDO class extended, you can edit, use this API as you like. You 
 class MySQLNile{
     use DataBase;
     //can input your server information with the help of constructor
-    function  __construct($dbname = "", $servername = "",$username_database = "",$password_database = ""){
-        try {
-            if ($dbname === "" || $servername === "" || $username_database === "") {
-                $error = 'Empty DataBase Information Error';
-                throw new Exception($error);
-            }
-            $this->dbname = $dbname;
-            $this->servername = $servername;
-            $this->username_database = $username_database;
-            $this->password_database = $password_database;
+    function  __construct(){
+       try{
+            if (func_num_args() > 4)
+                throw new Exception('Argument Error');
         }catch(Exception $e){
-            $e->getMessage();
+            echo $e->getMessage();
         }
+        switch (func_num_args()){
+            case 4:
+            $this->password_database = func_get_arg(3);
+            case 3:
+            $this->username_database = func_get_arg(2);
+            case 2:
+            $this->servername = func_get_arg(1);
+            case 1:
+            $this->dbname = func_get_arg(0);
+            
+    }
     }
     /* inserting data without sql injection
     $input variable will input any data you want to input should be in string
@@ -47,7 +52,7 @@ class MySQLNile{
         $parameter =  explode(",",$columnName_value);
         //Uploading DATA TO DATABASE
         try {
-            $conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $username_database, $this->password_database);
+            $conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username_database, $this->password_database);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "INSERT INTO `".$table_name."` ($columnName)
                              VALUES ($columnName_value)"; //will be written in  ":ram,:shyam,:raghu"
@@ -82,7 +87,7 @@ class MySQLNile{
      */
     public function createTable($columnNames,$table_name){
         try {
-            $conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname",$username_database, $this->password_database);
+            $conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname",$this->username_database, $this->password_database);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "CREATE TABLE IF NOT EXISTS`".$table_name."` ( ".$columnNames." )";
             $conn->exec($sql);
@@ -122,4 +127,3 @@ class MySQLNile{
         $conn = null;
     }
 }
-
