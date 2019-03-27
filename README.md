@@ -23,7 +23,7 @@ Or you can set values to Database and then change values as per your need. This 
 ```sh
 $query = new SQNile('database_name');
 ```
-#### databaseInfo
+#### databaseInfo()
 It changes the database info. This example changes the database name from name_one to name_two
 ```sh
 $query = new SQNlie('name_one');
@@ -73,8 +73,31 @@ $query->fetch(
 ['ISHA' , 'true']
 );
 ```
+#### createTable()
+This method requires two parameters.This method can welcome SQLInjection and should be used with caution.
+Provide table name and column name manually.
+```sh
+$query->createTable(
+'tableNmae', 
+    "column1 datatype,
+    column2 datatype,
+    column3 datatype,";
+```
 #### query()
-Write any query you want
+Write any query you want.
+```sh
+$query->query('INSERT INTO online (name,email,id) VALUES ("Ram","hello@protonmail.com","1")');
+$query->query(UPDATE users SET password = "Ram" WHERE email = "hello@protonmail.com"');
+```
+Or write dynamically
+```sh
+$query->query(
+UPDATE users SET password = ? WHERE email = ?',
+[$password, $email]
+);
+```
+## Donate
+If you are like using SQNile and want to [donate](https://www.itarimusic.com/mission.php#pricing)...
 
 ## Disclaimer
 This tool is only intended for personal use and is a simple demonstration. It is in open domain and I am not responsible if you use it and violate any TnC. Or as they say, it's for science.
