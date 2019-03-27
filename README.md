@@ -19,7 +19,7 @@ Set values from constructor
 ```sh
 $query = new SQNile('database_name','servername','username_database','password_database');
 ```
-Or you can set values to Database and then change values as per your need. This will only change the database_name
+Or you can set values to Database and then change values as per your need, in this example we change the database_name.
 ```sh
 $query = new SQNile('database_name');
 ```
