@@ -2,7 +2,7 @@
 require_once 'DataBase.php';
 class SQNile{
     use DataBase;
-    private $conn;
+    public $conn;
     function  __construct(){
         try {
             if (func_num_args() > 4)
@@ -17,14 +17,14 @@ class SQNile{
             case 1:
                 $this->dbname = func_get_arg(0);
         }
-            $this->conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username_database, $this->password_database);
+            $this->conn = new PDO($this->driver.":host=$this->servername;dbname=$this->dbname", $this->username_database, $this->password_database);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         }
         catch(PDOException $e){echo $e->getMessage();}
         catch (Exception $e) {echo $e->getMessage();}
     }
-    function databaseInfo(){
+    function setDatabaseInfo(){
         $this->conn = null;
         try {
             if (func_num_args() > 4)
@@ -45,6 +45,9 @@ class SQNile{
         }
         catch(PDOException $e){echo $e->getMessage();}
         catch (Exception $e) {echo $e->getMessage();}
+    }
+    function getDatabaseInfo(){
+        return ["servername"=>$this->servername,"database_name"=>$this->dbname,"username"=>$this->username_database,"password"=>$this->password_database,"driver"=>$this->driver];
     }
     function fetchAll(){
         try {

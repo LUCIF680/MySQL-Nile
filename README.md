@@ -23,7 +23,7 @@ Or you can set values to Database and then change values as per your need, in th
 ```sh
 $query = new SQNile('database_name');
 ```
-#### databaseInfo()
+#### setDatabaseInfo()
 It changes the database info. This example changes the database name from name_one to name_two
 ```sh
 $query = new SQNlie('name_one');
@@ -31,10 +31,16 @@ $query = new SQNlie('name_one');
 Your codes goes here
 */
 
-$query->databaseInfo('name_two');
+$query->setDatabaseInfo('name_two');
 /*
 Your other part of code
 */
+```
+
+#### getDatabaseInfo()
+Get the database info.
+```sh
+$query->setDatabaseInfo();
 ```
 
 #### fetchAll()
