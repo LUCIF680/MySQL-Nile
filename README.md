@@ -40,7 +40,7 @@ Your other part of code
 #### getDatabaseInfo()
 Get the database info.
 ```sh
-$query->setDatabaseInfo();
+$query->getDatabaseInfo();
 ```
 
 #### fetchAll()
