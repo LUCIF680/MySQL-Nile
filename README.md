@@ -103,7 +103,7 @@ UPDATE users SET password = ? WHERE email = ?',
 );
 ```
 ## Donate
-If you are like using SQNile and want to [donate](https://www.itarimusic.com/mission.php#pricing)...
+If you are like using SQNile and want to [donate](https://www.itarimusic.com/mission#pricing)...
 
 ## Disclaimer
 This tool is only intended for personal use and is a simple demonstration. It is in open domain and I am not responsible if you use it and violate any TnC. Or as they say, it's for science.
