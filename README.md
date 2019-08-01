@@ -1,5 +1,5 @@
 # SQNile
-SQNile is a simple but powerful API for writing queries. Which Uses the PDO and save from SQL Injection.
+SQNile is a simple but powerful API for writing queries. Which Uses the PDO and safe from SQL Injection.
 
 ## Getting Started
 Download the files from [here](https://lucif680.github.io/SQNile/sqnile.rar). Paste both files to the Project Folder.
@@ -93,12 +93,12 @@ $query->createTable(
 Write any query you want.
 ```sh
 $query->query('INSERT INTO online (name,email,id) VALUES ("Ram","hello@protonmail.com","1")');
-$query->query(UPDATE users SET password = "Ram" WHERE email = "hello@protonmail.com"');
+$query->query('UPDATE users SET password = "Ram" WHERE email = "hello@protonmail.com"');
 ```
 Or write dynamically
 ```sh
 $query->query(
-UPDATE users SET password = ? WHERE email = ?',
+'UPDATE users SET password = ? WHERE email = ?',
 [$password, $email]
 );
 ```
