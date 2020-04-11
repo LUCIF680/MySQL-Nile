@@ -2,13 +2,13 @@
 SQNile is a simple but powerful API for writing queries. Which Uses the PDO and safe from SQL Injection.
 
 ## Getting Started
-Download the files from [here](https://lucif680.github.io/SQNile/sqnile.rar). Paste both files to the Project Folder.
+Download the files and paste both files to the Project Folder.
 ```sh
 require_once 'your_location/SQNile.php';
 ```
 ## Before Use
 The fastest way to set the database information is to change the value of variables in Database.php file.
-![database](https://lucif680.github.io/SQNile/database.png)
+
 ## Methods
 #### Constructor
 Should be used if you have set all the values of database into Database.php
